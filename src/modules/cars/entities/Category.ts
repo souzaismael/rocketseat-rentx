@@ -1,5 +1,5 @@
 import { randomUUID } from "crypto";
-import { Column, Entity, PrimaryColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, PrimaryColumn } from "typeorm";
 
 @Entity("categories")
 class Category {
@@ -8,7 +8,11 @@ class Category {
 
     @Column()
     name: string;
+
+    @Column()
     description: string;
+
+    @CreateDateColumn()
     created_at: Date;
 
     constructor() {

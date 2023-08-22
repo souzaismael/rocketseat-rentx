@@ -4,7 +4,7 @@ import { ISpecificationsRepository } from "../../repositories/intefaces/ISpecifi
 class ListSpecificationsUseCase {
     constructor(private specificationsRepository: ISpecificationsRepository) {}
 
-    execute(): Specification[] {
+    async execute(): Promise<Specification[]> {
         return this.specificationsRepository.list();
     }
 }
