@@ -1,4 +1,4 @@
-import { hash } from "bcrypt";
+import { hash } from "bcryptjs";
 import { Repository, getRepository } from "typeorm";
 
 import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
