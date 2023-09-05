@@ -1,8 +1,8 @@
 import { NextFunction, Request, Response } from "express";
 import { verify } from "jsonwebtoken";
 
-import { UsersRepository } from "../modules/accounts/repositories/UsersRepository";
 import { AppError } from "../errors/AppError";
+import { UsersRepository } from "../modules/accounts/repositories/UsersRepository";
 
 interface IPayload {
     sub: string;
@@ -28,11 +28,15 @@ export async function ensureAuthenticated(
         ) as IPayload;
 
         const usersRepository = new UsersRepository();
-        const user = usersRepository.findById(user_id);
+        const user = await usersRepository.findById(user_id);
 
         if (!user) {
             throw new AppError("User does not exists!", 401);
         }
+
+        request.user = {
+            id: user_id,
+        };
 
         next();
     } catch {

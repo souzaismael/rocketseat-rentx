@@ -17,6 +17,8 @@ class UsersRepository implements IUsersRepository {
         email,
         password,
         driver_license,
+        id,
+        avatar,
     }: ICreateUserDTO): Promise<void> {
         const passwordHash = await hash(password, 8);
 
@@ -25,6 +27,8 @@ class UsersRepository implements IUsersRepository {
             email,
             password: passwordHash,
             driver_license,
+            id,
+            avatar,
         });
 
         await this.repository.save(newUser);

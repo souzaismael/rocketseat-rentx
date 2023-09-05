@@ -17,12 +17,12 @@ class SpecificationsRepository implements ISpecificationsRepository {
         name,
         description,
     }: ICreateSpecificationDTO): Promise<void> {
-        const newSpecification = await this.repository.create({
+        const newSpecification = this.repository.create({
             name,
             description,
         });
 
-        this.repository.save(newSpecification);
+        await this.repository.save(newSpecification);
     }
 
     async findByName(name: string): Promise<Specification> {
