@@ -4,6 +4,10 @@
  */
 
 import type { Config } from "jest";
+// eslint-disable-next-line import/no-extraneous-dependencies
+import { pathsToModuleNameMapper } from "ts-jest";
+
+import { compilerOptions } from "./tsconfig.json";
 
 const config: Config = {
     // All imported modules in your tests should be mocked automatically
@@ -90,8 +94,9 @@ const config: Config = {
     // ],
 
     // A map from regular expressions to module names or to arrays of module names that allow to stub out resources with a single module
-    // moduleNameMapper: {},
-
+    moduleNameMapper: pathsToModuleNameMapper(compilerOptions.paths, {
+        prefix: "<rootDir>/src/",
+    }),
     // An array of regexp pattern strings, matched against all module paths before considered 'visible' to the module loader
     // modulePathIgnorePatterns: [],
 

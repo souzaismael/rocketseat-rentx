@@ -1,9 +1,9 @@
 import { hash } from "bcryptjs";
 import { Repository, getRepository } from "typeorm";
 
-import { ICreateUserDTO } from "../dtos/ICreateUserDTO";
+import { ICreateUserDTO } from "../../../dtos/ICreateUserDTO";
+import { IUsersRepository } from "../../../repositories/interfaces/IUsersRepository";
 import { User } from "../entities/User";
-import { IUsersRepository } from "./interfaces/IUsersRepository";
 
 class UsersRepository implements IUsersRepository {
     private repository: Repository<User>;
