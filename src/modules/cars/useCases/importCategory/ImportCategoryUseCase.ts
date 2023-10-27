@@ -3,7 +3,7 @@ import fs from "fs";
 import { parse } from "csv-parse";
 import { inject, injectable } from "tsyringe";
 
-import { CategoriesRepository } from "../../infra/typeorm/repositories/CategoriesRepository";
+import { CategoriesRepository } from "@modules/cars/infra/typeorm/repositories/CategoriesRepository";
 
 interface IImportCategory {
     name: string;

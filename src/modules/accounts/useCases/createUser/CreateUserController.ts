@@ -1,5 +1,6 @@
-import { Request, Response } from "express";
 import { container } from "tsyringe";
+// eslint-disable-next-line import-helpers/order-imports
+import { Request, Response } from "express";
 
 import { CreateUserUseCase } from "./CreateUserUseCase";
 
