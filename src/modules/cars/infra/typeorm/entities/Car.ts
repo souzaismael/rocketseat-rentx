@@ -10,7 +10,7 @@ import {
 
 import { Category } from "./Category";
 
-@Entity("users")
+@Entity("cars")
 class Car {
     @PrimaryColumn()
     id?: string;
